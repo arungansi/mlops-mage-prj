@@ -142,7 +142,7 @@ blocks:
   type: markdown
   upstream_blocks: []
   uuid: ci_cd
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: pink
   configuration:
     file_path: mlops-gansi-prj/custom/ci_and_cd.py
@@ -155,7 +155,7 @@ blocks:
   language: python
   name: CI and CD
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: custom
   upstream_blocks:
