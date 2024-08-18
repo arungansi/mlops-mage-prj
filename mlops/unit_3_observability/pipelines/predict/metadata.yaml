@@ -1,0 +1,83 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: unit_3_observability/global_data_products/xgboost_gdp.py
+    global_data_product:
+      uuid: xgboost_wind_turbine
+  downstream_blocks:
+  - inference
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: xgboost gdp
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: global_data_product
+  upstream_blocks: []
+  uuid: xgboost_gdp
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_path: unit_3_observability/markdowns/online_inference_tips.md
+    file_source:
+      path: unit_3_observability/markdowns/online_inference_tips.md
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: markdown
+  name: Online inference tips
+  retry_config: null
+  status: updated
+  timeout: null
+  type: markdown
+  upstream_blocks: []
+  uuid: online_inference_tips
+- all_upstream_blocks_executed: false
+  color: teal
+  configuration:
+    file_source:
+      path: unit_3_observability/custom/inference.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Inference
+  retry_config: null
+  status: updated
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - xgboost_gdp
+  uuid: inference
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-05-16 09:15:48.323029+00:00'
+data_integration: null
+description: Online Inference
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: Predict
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags:
+- Preditc
+- inference
+type: python
+uuid: predict
+variables_dir: /home/src/mage_data/unit_3_observability
+widgets: []

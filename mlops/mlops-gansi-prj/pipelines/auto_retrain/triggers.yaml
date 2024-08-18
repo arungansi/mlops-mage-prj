@@ -1,0 +1,17 @@
+triggers:
+- description: null
+  envs: []
+  last_enabled_at: 2024-07-31 02:50:53.082767+00:00
+  name: Retrain XGBoost Daily
+  pipeline_uuid: auto_retrain
+  schedule_interval: '@daily'
+  schedule_type: time
+  settings:
+    allow_blocks_to_fail: true
+    create_initial_pipeline_run: true
+    skip_if_previous_running: true
+  sla: null
+  start_time: 2024-07-31 02:48:00+00:00
+  status: inactive
+  token: 462dae884bdd4f94b201f2e5c9ba1017
+  variables: {}

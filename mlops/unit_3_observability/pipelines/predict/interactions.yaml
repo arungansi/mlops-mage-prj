@@ -1,0 +1,9 @@
+blocks:
+  inference:
+  - description: Make predictions without API
+    layout: []
+    name: Make predictions without API
+    permissions: []
+    uuid: user_interface.yaml
+    variables: {}
+layout: []

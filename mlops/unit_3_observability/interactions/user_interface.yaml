@@ -1,0 +1,53 @@
+inputs:
+  Date Control:
+    options: []
+    style: null
+    type: text_field
+  Text:
+    options: []
+    style:
+      input_type: number
+      multiline: null
+    type: text_field
+layout:
+- - variable: Date/Time
+    width: 1
+- - variable: Wind Speed
+    width: 1
+- - variable: Theory Power Curve
+    width: 1
+- - variable: Wind Dir
+    width: 1
+variables:
+  Date/Time:
+    description: Date & Time
+    input: Date Control
+    name: Date & Time
+    required: true
+    types:
+    - date
+    uuid: null
+  Theory Power Curve:
+    description: Theoretical_Power_Curve (KWh)
+    input: Text
+    name: Theoretical_Power_Curve (KWh)
+    required: true
+    types:
+    - float
+    uuid: null
+  Wind Dir:
+    description: "Wind Direction (\xB0)"
+    input: Text
+    name: "Wind Direction (\xB0)"
+    required: true
+    types:
+    - float
+    uuid: null
+  Wind Speed:
+    description: Wind Speed
+    input: Text
+    name: Wind Speed (m/s)
+    required: true
+    types:
+    - float
+    uuid: null

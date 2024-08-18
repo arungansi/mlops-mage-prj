@@ -1,0 +1,19 @@
+wind_train_set:
+  object_type: pipeline
+  object_uuid: data__preparation
+  outdated_after:
+    seconds: 100000
+    weeks: -1
+  project: mlops-gansi-prj
+  repo_path: /home/src/mlops/mlops-gansi-prj
+  settings:
+    build_data_for_ml: {}
+xgboost_wind_turbine:
+  object_type: pipeline
+  object_uuid: xgboost_train
+  outdated_after:
+    seconds: 83998
+  project: mlops-gansi-prj
+  repo_path: /home/src/mlops/mlops-gansi-prj
+  settings:
+    xboost_tuned: {}

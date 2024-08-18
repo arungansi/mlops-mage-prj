@@ -1,0 +1,190 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: mlops-gansi-prj/markdowns/deploy_to_aws.md
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: markdown
+  name: Deploy to AWS
+  retry_config: null
+  status: updated
+  timeout: null
+  type: markdown
+  upstream_blocks: []
+  uuid: deploy_to_aws
+- all_upstream_blocks_executed: true
+  color: yellow
+  configuration:
+    file_source:
+      path: mlops-gansi-prj/custom/mage_persmissions_aws.py
+  downstream_blocks:
+  - infra_setup
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Mage Persmissions AWS
+  retry_config: null
+  status: executed
+  timeout: null
+  type: custom
+  upstream_blocks: []
+  uuid: mage_persmissions_aws
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: mlops-gansi-prj/markdowns/terraform_based_deployment.md
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: markdown
+  name: Terraform Based Deployment
+  retry_config: null
+  status: updated
+  timeout: null
+  type: markdown
+  upstream_blocks: []
+  uuid: terraform_based_deployment
+- all_upstream_blocks_executed: true
+  color: blue
+  configuration:
+    file_source:
+      path: mlops-gansi-prj/custom/infra_setup.py
+  downstream_blocks:
+  - terraform_clear
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Infra Setup
+  retry_config: null
+  status: executed
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - mage_persmissions_aws
+  uuid: infra_setup
+- all_upstream_blocks_executed: true
+  color: teal
+  configuration:
+    file_source:
+      path: mlops-gansi-prj/custom/terraform_clear.py
+  downstream_blocks:
+  - tf_deploy
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: terraform_clear
+  retry_config: null
+  status: executed
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - infra_setup
+  uuid: terraform_clear
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: mlops-gansi-prj/custom/tf_deploy.py
+  downstream_blocks:
+  - ci_and_cd
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: tf deploy
+  retry_config: null
+  status: executed
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - terraform_clear
+  uuid: tf_deploy
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: mlops-gansi-prj/markdowns/version_control.md
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: markdown
+  name: Version Control
+  retry_config: null
+  status: updated
+  timeout: null
+  type: markdown
+  upstream_blocks: []
+  uuid: version_control
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: mlops-gansi-prj/markdowns/ci_cd.md
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: markdown
+  name: CI CD
+  retry_config: null
+  status: updated
+  timeout: null
+  type: markdown
+  upstream_blocks: []
+  uuid: ci_cd
+- all_upstream_blocks_executed: true
+  color: pink
+  configuration:
+    file_path: mlops-gansi-prj/custom/ci_and_cd.py
+    file_source:
+      path: mlops-gansi-prj/custom/ci_and_cd.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: CI and CD
+  retry_config: null
+  status: executed
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - tf_deploy
+  uuid: ci_and_cd
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-08-04 14:32:40.543220+00:00'
+data_integration: null
+description: XGBoost Exercise Prod Deployment
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: Production Deployment
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags:
+- deploy
+- prod
+type: python
+uuid: production_deployment
+variables: {}
+variables_dir: /home/src/mage_data/mlops-gansi-prj
+widgets: []

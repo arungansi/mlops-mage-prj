@@ -1,0 +1,141 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: mlops-gansi-prj/global_data_products/get_prepared_data.py
+    global_data_product:
+      uuid: wind_train_set
+  downstream_blocks:
+  - hyper_tuning/sklearn
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Get Prepared Data
+  retry_config: null
+  status: failed
+  timeout: null
+  type: global_data_product
+  upstream_blocks: []
+  uuid: get_prepared_data
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: mlops-gansi-prj/markdowns/dynamic_block.md
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: markdown
+  name: Dynamic Block
+  retry_config: null
+  status: updated
+  timeout: null
+  type: markdown
+  upstream_blocks: []
+  uuid: dynamic_block
+- all_upstream_blocks_executed: true
+  color: purple
+  configuration:
+    dynamic: true
+    file_source:
+      path: mlops-gansi-prj/custom/load_models.py
+  downstream_blocks:
+  - hyper_tuning/sklearn
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Load Models
+  retry_config: null
+  status: executed
+  timeout: null
+  type: custom
+  upstream_blocks: []
+  uuid: load_models
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: mlops-gansi-prj/transformers/hyper_tuning/sklearn.py
+  downstream_blocks:
+  - sklearn_train
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: hyper_tuning/sklearn
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - get_prepared_data
+  - load_models
+  uuid: hyper_tuning/sklearn
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: mlops-gansi-prj/data_exporters/sklearn_train.py
+  downstream_blocks:
+  - test
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: sklearn_train
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - hyper_tuning/sklearn
+  uuid: sklearn_train
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: mlops-gansi-prj/custom/test.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: test
+  retry_config: null
+  status: executed
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - sklearn_train
+  uuid: test
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-07-27 23:06:38.830815+00:00'
+data_integration: null
+description: 'Train with 6 different SK learn models '
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: SK Learn Pipeline
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: sk_learn_pipeline
+variables:
+  max_evaluations: 20
+  random_state: 42
+variables_dir: /home/src/mage_data/mlops-gansi-prj
+widgets: []

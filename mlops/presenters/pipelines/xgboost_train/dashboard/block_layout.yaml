@@ -1,0 +1,82 @@
+blocks:
+  shap_xgboost_bar:
+    configuration:
+      chart_type: custom
+    data_source:
+      block_uuid: dashboard_source
+      pipeline_schedule_id: null
+      pipeline_uuid: xgboost_train
+      type: block
+    error: null
+    name: SHAP XGBoost Bar
+    skip_render: false
+    type: chart
+    uuid: shap_xgboost_bar
+  shap_xgboost_force_plot:
+    configuration:
+      chart_type: custom
+    data_source:
+      block_uuid: dashboard_source
+      pipeline_schedule_id: null
+      pipeline_uuid: xgboost_train
+      type: block
+    error: null
+    name: SHAP XGBoost Force Plot
+    name_new: SHAP XGBoost Force Plot
+    skip_render: false
+    type: chart
+    uuid: shap_xgboost_force_plot
+  shap_xgboost_hist:
+    configuration:
+      chart_type: custom
+    data_source:
+      block_uuid: dashboard_source
+      pipeline_schedule_id: null
+      pipeline_uuid: xgboost_train
+      type: block
+    error: null
+    name: Shap XGBoost Hist
+    name_new: Shap XGBoost Hist
+    skip_render: false
+    type: chart
+    uuid: shap_xgboost_hist
+  training_metrics_rmse:
+    configuration:
+      chart_type: time series line chart
+      group_by:
+      - start_time
+      metrics:
+      - aggregation: average
+        column: rmse_LinearSVR
+      - aggregation: average
+        column: rmse_LinearRegression
+      - aggregation: average
+        column: rmse_Lasso
+      - aggregation: average
+        column: rmse_GradientBoostingRegressor
+      - aggregation: average
+        column: rmse_ExtraTreesRegressor
+      - aggregation: average
+        column: rmse_RandomForestRegressor
+      - aggregation: average
+        column: rmse_Booster
+      time_interval: minute
+      x_axis_label_format: h:mm
+      y_axis_label_format: return value
+    data_source:
+      type: chart_code
+    error: null
+    name: Training Metrics RMSE
+    name_new: Training Metrics RMSE
+    skip_render: false
+    type: chart
+    uuid: training_metrics_rmse
+layout:
+- - block_uuid: shap_xgboost_hist
+    width: 1
+  - block_uuid: shap_xgboost_bar
+    width: 1
+- - block_uuid: shap_xgboost_force_plot
+    width: 1
+- - block_uuid: training_metrics_rmse
+    width: 1
